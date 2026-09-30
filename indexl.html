@@ -7,21 +7,16 @@
     <style>
         html, body, #jsdos { width: 100%; height: 100%; margin: 0; padding: 0; background-color: black; }
     </style>
-    <!-- Loads the web-ready DOS emulator core libraries directly -->
+    <!-- Stable fallback architecture libraries -->
     <link href="https://js-dos.com" rel="stylesheet">
     <script src="https://js-dos.com"></script>
 </head>
 <body>
     <div id="jsdos"></div>
     <script>
-        // Points the emulator to a pre-packaged public DOS package of the game
-        Dos(document.getElementById("jsdos"), {
-            wdosboxUrl: "https://js-dos.com"
-        }).ready((fs, main) => {
-            fs.extract("https://jsdelivr.net").then(() => {
-                main(["-c", "POSTAL.EXE"]);
-            });
-        });
+        // Launches via an alternative web archive package
+        Dos(document.getElementById("jsdos"))
+            .run("https://amazonaws.com");
     </script>
 </body>
 </html>
